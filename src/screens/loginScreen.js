@@ -1,13 +1,13 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import LoginFormComponent from '../components/login/loginFormComponent';
+import LoginForm from '../components/login/loginForm';
 
 export default class LoginScreen extends React.Component {
   render() {
     return (
       <View>
-        <LoginFormComponent />
+        <LoginForm />
       </View>
     );
   }

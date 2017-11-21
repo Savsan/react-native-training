@@ -4,18 +4,27 @@ import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import LoginScreen from '../screens/loginScreen';
+import AboutScreen from '../screens/aboutScreen';
+import ActionsScreen from '../screens/actionsScreen';
+import MainScreen from '../screens/mainScreen';
 
 class RootComponent extends React.Component {
+  this.state = {
+    currentScreen: 'login',
+  }
+
   componentDidMount() {
     this.props.initRequest();
   }
 
   render() {
-    return (
-      <View style={styles.container}>
-        <LoginScreen />
-      </View>
-    );
+    if(this.state.currentScreen === 'login')
+      return (
+        <View style={styles.container}>
+          <LoginScreen />
+        </View>
+      );
+    }
   }
 }
 
