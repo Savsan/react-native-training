@@ -35,7 +35,7 @@ export default class LoginForm extends React.Component {
         <View style={styles.loginFormLogoContainer}>
           <Image
             source={require('../../../assets/images/left-braces.png')}
-            style={styles.logoLeftBraces}
+            style={styles.logoBraces}
           />
           <Text
             style={styles.loginTitle}
@@ -45,7 +45,7 @@ export default class LoginForm extends React.Component {
           </Text>
           <Image
             source={require('../../../assets/images/right-braces.png')}
-            style={styles.logoRightBraces}
+            style={styles.logoBraces}
           />
         </View>
         <View style={styles.loginTextInputContainer}>
@@ -90,6 +90,8 @@ const styles = StyleSheet.create({
   },
   loginFormLogoContainer: {
     width: 300,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
   },
   loginTitle: {
     fontFamily: 'oswald-bold',
@@ -101,19 +103,10 @@ const styles = StyleSheet.create({
     height: 120,
     justifyContent: 'space-between',
   },
-  logoLeftBraces: {
-    position: 'absolute',
+  logoBraces: {
+    marginTop: 38,
     width: 26,
     height: 45,
-    left: 0,
-    top: 37,
-  },
-  logoRightBraces: {
-    position: 'absolute',
-    width: 26,
-    height: 45,
-    right: 0,
-    top: 37,
   },
   loginTextInput: {
     width: 300,
