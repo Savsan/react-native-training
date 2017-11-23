@@ -9,8 +9,11 @@ import ActionsScreen from '../screens/actionsScreen';
 import MainScreen from '../screens/mainScreen';
 
 class RootComponent extends React.Component {
-  this.state = {
-    currentScreen: 'login',
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentScreen: 'login',
+    };
   }
 
   componentDidMount() {
@@ -18,7 +21,7 @@ class RootComponent extends React.Component {
   }
 
   render() {
-    if(this.state.currentScreen === 'login')
+    if(this.state.currentScreen === 'login') {
       return (
         <View style={styles.container}>
           <LoginScreen />
@@ -27,6 +30,7 @@ class RootComponent extends React.Component {
     }
   }
 }
+
 
 RootComponent.propTypes = {
   initRequest: PropTypes.func.isRequired,
