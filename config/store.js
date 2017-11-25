@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 
-import initialReducer from './reducers/initialReducer';
-import initialReducerMiddleware from './middlewares/initialReducerMiddleware';
+import initialReducer from '../reducers/initialReducer';
+import initialReducerMiddleware from '../middlewares/initialReducerMiddleware';
 
 const DEVTOOLS_COMPOSER = '__REDUX_DEVTOOLS_EXTENSION_COMPOSE__';
 const composeWithDevTools = (typeof window === 'object' &&

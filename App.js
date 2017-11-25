@@ -3,11 +3,11 @@ import { Provider } from 'react-redux';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 
-import store from './src/store';
+import store from './config/store';
 
 import { Ionicons } from '@expo/vector-icons';
 
-import RootComponent from './src/components/rootComponent';
+import RootComponent from './components/rootComponent';
 
 export default class App extends React.Component {
   state = {

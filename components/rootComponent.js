@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
+import mapActionsToProps from '../config/actions';
+import styles from './styles';
 
 import LoginScreen from '../screens/loginScreen';
 import AboutScreen from '../screens/aboutScreen';
@@ -21,7 +23,7 @@ class RootComponent extends React.Component {
   }
 
   render() {
-    if(this.state.currentScreen === 'login') {
+    if (this.state.currentScreen === 'login') {
       return (
         <View style={styles.container}>
           <LoginScreen />
@@ -31,31 +33,13 @@ class RootComponent extends React.Component {
   }
 }
 
-
 RootComponent.propTypes = {
   initRequest: PropTypes.func.isRequired,
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-  },
-});
-
 function mapStateToProps(state) {
   return {
     init: state.init,
-  };
-}
-
-function mapActionsToProps(dispatch) {
-  return {
-    initRequest: () => dispatch({
-      type: 'INITIAL_REQUEST',
-    }),
   };
 }
 
