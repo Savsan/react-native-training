@@ -11,7 +11,7 @@ const composeWithDevTools = (typeof window === 'object' &&
 
 const store = createStore(
   combineReducers({
-    init: initialReducer,
+    auth: initialReducer,
   }),
   composeWithDevTools(applyMiddleware(initialReducerMiddleware)),
 );

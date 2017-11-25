@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableHighlight, Image } from 'react-native';
+import PropTypes from 'prop-types';
 import styles from './styles';
 
 export default class LoginForm extends React.Component {
@@ -27,7 +28,7 @@ export default class LoginForm extends React.Component {
   }
 
   onPressLogin() {
-    console.log('Dispatch Login Action');
+    this.props.initRequest();
   }
 
   render() {
@@ -80,3 +81,7 @@ export default class LoginForm extends React.Component {
     );
   }
 }
+
+LoginForm.propTypes = {
+  initRequest: PropTypes.func.isRequired,
+};

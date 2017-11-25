@@ -1,10 +1,10 @@
 export default function initReducerMiddleware({ dispatch }) {
   return next =>
     (action) => {
-      if (action.type === 'INITIAL_REQUEST') {
+      if (action.type === 'AUTH_REQUEST') {
         return dispatch({
-          type: 'RECIEVE_INIT_DATA',
-          payload: { data: 'newData' },
+          type: 'AUTH_RESPONSE',
+          payload: { isAuthorised: true },
         });
       }
       return next(action);

@@ -1,10 +1,10 @@
 const initialState = {
-  initState: 'Store works!!!',
+  state: 'Store works!!!',
 };
 
 export default function initialReducer(state = initialState, action) {
   switch (action.type) {
-  case 'RECIEVE_INIT_DATA': {
+  case 'AUTH_RESPONSE': {
     return Object.assign({}, state, action.payload);
   }
   default: {

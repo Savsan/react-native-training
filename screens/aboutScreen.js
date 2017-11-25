@@ -1,10 +1,21 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 export default class AboutScreen extends React.Component {
+  static navigationOptions = {
+    title: 'About',
+  };
+
   render() {
     return (
-      <View />
+      <View>
+        <Text>
+          Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+          Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+          Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+          Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+        </Text>
+      </View>
     );
   }
 }

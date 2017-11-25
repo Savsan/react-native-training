@@ -5,31 +5,36 @@ import PropTypes from 'prop-types';
 import mapActionsToProps from '../config/actions';
 import styles from './styles';
 
-import LoginScreen from '../screens/loginScreen';
-import AboutScreen from '../screens/aboutScreen';
-import ActionsScreen from '../screens/actionsScreen';
 import MainScreen from '../screens/mainScreen';
+import LoginScreen from '../screens/loginScreen';
 
 class RootComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentScreen: 'login',
+      isAuthorised: false,
     };
   }
 
-  componentDidMount() {
-    this.props.initRequest();
+  componentWillReceiveProps(nextProps) {
+    if (this.state.isAuthorised !== nextProps.auth.isAuthorised) {
+      this.state.isAuthorised = nextProps.auth.isAuthorised;
+    }
   }
 
   render() {
-    if (this.state.currentScreen === 'login') {
+    if (this.state.isAuthorised) {
       return (
-        <View style={styles.container}>
-          <LoginScreen />
-        </View>
+        <MainScreen />
       );
     }
+    return (
+      <View style={styles.container}>
+        <LoginScreen
+          initRequest={this.props.initRequest}
+        />
+      </View>
+    );
   }
 }
 
@@ -39,7 +44,7 @@ RootComponent.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    init: state.init,
+    auth: state.auth,
   };
 }
 
