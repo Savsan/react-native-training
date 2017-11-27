@@ -1,5 +1,5 @@
 const initialState = {
-  state: 'Store works!!!',
+  isAuthorised: false,
 };
 
 export default function initialReducer(state = initialState, action) {

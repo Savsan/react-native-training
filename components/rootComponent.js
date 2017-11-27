@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
+import { addNavigationHelpers } from 'react-navigation';
 import PropTypes from 'prop-types';
 import mapActionsToProps from '../config/actions';
+import AppNavigator from '../config/appNavigator';
 import styles from './styles';
 
 import MainScreen from '../screens/mainScreen';
@@ -17,15 +19,21 @@ class RootComponent extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.state.isAuthorised !== nextProps.auth.isAuthorised) {
+    const currentProps = this.props;
+
+    if (currentProps.auth.isAuthorised !== nextProps.auth.isAuthorised) {
       this.state.isAuthorised = nextProps.auth.isAuthorised;
     }
   }
 
   render() {
-    if (this.state.isAuthorised) {
+    if (this.props.auth.isAuthorised) {
       return (
-        <MainScreen />
+        <AppNavigator navigation={addNavigationHelpers({
+          dispatch: this.props.dispatch,
+          state: this.props.nav,
+        })}
+        />
       );
     }
     return (
@@ -39,12 +47,15 @@ class RootComponent extends React.Component {
 }
 
 RootComponent.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  nav: PropTypes.object.isRequired,
   initRequest: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
     auth: state.auth,
+    nav: state.nav,
   };
 }
 

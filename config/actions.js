@@ -3,5 +3,6 @@ export default function mapActionsToProps(dispatch) {
     initRequest: () => dispatch({
       type: 'AUTH_REQUEST',
     }),
+    dispatch,
   };
 }

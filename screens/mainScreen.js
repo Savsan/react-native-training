@@ -1,14 +1,25 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { NavigationActions } from 'react-navigation';
 
-import AboutScreen from '../screens/aboutScreen';
-import ActionsScreen from '../screens/actionsScreen';
+const testNavAction = NavigationActions.navigate({
+  routeName: 'Actions',
+  params: {},
+  action: NavigationActions.navigate({ routeName: 'SubProfileRoute' }),
+});
 
-class MainScreen extends React.Component {
-  static navigationOptions = {
+export default class MainScreen extends React.Component {
+  static navigationOptions = ({ navigation }) => ({
     title: 'Main screen',
-  };
+    headerRight:
+  <Button
+    color="black"
+    title="Button"
+    onPress={() => {
+      navigation.dispatch(testNavAction);
+    }}
+  />,
+  });
 
   render() {
     return (
@@ -35,11 +46,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-const AppNavigator = StackNavigator({
-  Main: { screen: MainScreen },
-  Actions: { screen: ActionsScreen },
-  About: { screen: AboutScreen },
-});
-
-export default AppNavigator;
