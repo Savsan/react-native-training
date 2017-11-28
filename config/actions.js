@@ -3,6 +3,12 @@ export default function mapActionsToProps(dispatch) {
     initRequest: () => dispatch({
       type: 'AUTH_REQUEST',
     }),
+    openMainScreenModal: () => dispatch({
+      type: 'OPEN_MAINSCREEN_MODAL',
+    }),
+    closeMainScreenModal: () => dispatch({
+      type: 'CLOSE_MAINSCREEN_MODAL',
+    }),
     dispatch,
   };
 }
