@@ -3,8 +3,9 @@ import { View, Modal, Text, StyleSheet, Button } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import { Ionicons } from '@expo/vector-icons';
-import mapActionsToProps from '../config/actions';
+import mapActionsToProps from '../../config/actions';
 import PropTypes from 'prop-types';
+import styles from './styles';
 
 class MainScreen extends React.Component {
   static navigationOptions = ({ screenProps }) => ({
@@ -72,32 +73,6 @@ MainScreen.propTypes = {
   mainScreen: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  modalContent: {
-    flex: 1,
-    paddingTop: 22,
-    backgroundColor: 'rgba(52, 52, 52, 0.9)',
-  },
-  modalHeader: {
-    color: 'white',
-    alignSelf: 'center',
-    marginTop: 40,
-  },
-  modalCloseButton: {
-    alignSelf: 'flex-end',
-    marginRight: 20,
-  },
-  modalItemsContainer: {
-    marginRight: 50,
-  },
-});
 
 function mapStateToProps(state) {
   return {

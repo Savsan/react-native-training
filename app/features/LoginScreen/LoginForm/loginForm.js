@@ -36,7 +36,7 @@ export default class LoginForm extends React.Component {
       <View style={styles.loginForm}>
         <View style={styles.loginFormLogoContainer}>
           <Image
-            source={require('../../assets/images/left-braces.png')}
+            source={require('../../../assets/images/left-braces.png')}
             style={styles.logoBraces}
           />
           <Text
@@ -46,7 +46,7 @@ export default class LoginForm extends React.Component {
           epamer
           </Text>
           <Image
-            source={require('../../assets/images/right-braces.png')}
+            source={require('../../../assets/images/right-braces.png')}
             style={styles.logoBraces}
           />
         </View>

@@ -7,7 +7,7 @@ import mapActionsToProps from '../config/actions';
 import AppNavigator from '../config/appNavigator';
 import styles from './styles';
 
-import LoginScreen from '../screens/loginScreen';
+import LoginScreen from './LoginScreen';
 
 class RootComponent extends React.Component {
   constructor(props) {

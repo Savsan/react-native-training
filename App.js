@@ -7,7 +7,7 @@ import store from './app/config/store';
 
 import { Ionicons } from '@expo/vector-icons';
 
-import RootComponent from './app/components/rootComponent';
+import { RootComponent } from './app/features';
 
 export default class App extends React.Component {
   state = {
