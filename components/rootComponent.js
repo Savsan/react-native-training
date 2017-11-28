@@ -7,7 +7,6 @@ import mapActionsToProps from '../config/actions';
 import AppNavigator from '../config/appNavigator';
 import styles from './styles';
 
-import MainScreen from '../screens/mainScreen';
 import LoginScreen from '../screens/loginScreen';
 
 class RootComponent extends React.Component {
@@ -29,10 +28,16 @@ class RootComponent extends React.Component {
   render() {
     if (this.props.auth.isAuthorised) {
       return (
-        <AppNavigator navigation={addNavigationHelpers({
-          dispatch: this.props.dispatch,
-          state: this.props.nav,
-        })}
+        <AppNavigator
+          navigation={addNavigationHelpers({
+            dispatch: this.props.dispatch,
+            state: this.props.nav,
+          })}
+          screenProps={{
+            mainScreen: {
+              openMainScreenModal: this.props.openMainScreenModal,
+            },
+          }}
         />
       );
     }
@@ -48,8 +53,10 @@ class RootComponent extends React.Component {
 
 RootComponent.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
   nav: PropTypes.object.isRequired,
   initRequest: PropTypes.func.isRequired,
+  openMainScreenModal: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
