@@ -3,11 +3,11 @@ import { Provider } from 'react-redux';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 
-import store from './config/store';
+import store from './app/config/store';
 
 import { Ionicons } from '@expo/vector-icons';
 
-import RootComponent from './components/rootComponent';
+import RootComponent from './app/components/rootComponent';
 
 export default class App extends React.Component {
   state = {
@@ -16,16 +16,16 @@ export default class App extends React.Component {
 
   _loadResourcesAsync = async () => Promise.all([
     Asset.loadAsync([
-      require('./assets/images/robot-dev.png'),
-      require('./assets/images/robot-prod.png'),
+      require('./app/assets/images/robot-dev.png'),
+      require('./app/assets/images/robot-prod.png'),
     ]),
     Font.loadAsync([
       Ionicons.font,
-      { 'oswald-bold': require('./assets/fonts/Oswald/Oswald-Bold.ttf') },
-      { 'oswald-light': require('./assets/fonts/Oswald/Oswald-Light.ttf') },
-      { 'oswald-regular': require('./assets/fonts/Oswald/Oswald-Regular.ttf') },
-      { 'open-sans-pro-bold': require('./assets/fonts/SourceSansPro/SourceSansPro-Bold.otf') },
-      { 'open-sans-pro-regular': require('./assets/fonts/SourceSansPro/SourceSansPro-Regular.otf') },
+      { 'oswald-bold': require('./app/assets/fonts/Oswald/Oswald-Bold.ttf') },
+      { 'oswald-light': require('./app/assets/fonts/Oswald/Oswald-Light.ttf') },
+      { 'oswald-regular': require('./app/assets/fonts/Oswald/Oswald-Regular.ttf') },
+      { 'open-sans-pro-bold': require('./app/assets/fonts/SourceSansPro/SourceSansPro-Bold.otf') },
+      { 'open-sans-pro-regular': require('./app/assets/fonts/SourceSansPro/SourceSansPro-Regular.otf') },
     ]),
   ]);
 
