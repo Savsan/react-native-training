@@ -1,6 +1,9 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableHighlight, Image } from 'react-native';
 import PropTypes from 'prop-types';
+
+import Logo from '../../../components';
+
 import styles from './styles';
 
 export default class LoginForm extends React.Component {
@@ -34,22 +37,7 @@ export default class LoginForm extends React.Component {
   render() {
     return (
       <View style={styles.loginForm}>
-        <View style={styles.loginFormLogoContainer}>
-          <Image
-            source={require('../../../assets/images/left-braces.png')}
-            style={styles.logoBraces}
-          />
-          <Text
-            style={styles.loginTitle}
-            includeFontPadding={false}
-          >
-          epamer
-          </Text>
-          <Image
-            source={require('../../../assets/images/right-braces.png')}
-            style={styles.logoBraces}
-          />
-        </View>
+        <Logo {...styles} />
         <View style={styles.loginTextInputContainer}>
           <TextInput
             style={styles.loginTextInput}

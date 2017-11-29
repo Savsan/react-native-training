@@ -8,25 +8,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
   },
-  loginFormLogoContainer: {
+  logoContainer: {
     width: 300,
     justifyContent: 'space-between',
     flexDirection: 'row',
   },
-  loginTitle: {
+  logoTitle: {
     fontFamily: 'oswald-bold',
     fontSize: 70,
     textAlign: 'center',
-  },
-  loginTextInputContainer: {
-    width: 300,
-    height: 120,
-    justifyContent: 'space-between',
   },
   logoBraces: {
     marginTop: 38,
     width: 26,
     height: 45,
+  },
+  loginTextInputContainer: {
+    width: 300,
+    height: 120,
+    justifyContent: 'space-between',
   },
   loginTextInput: {
     width: 300,
