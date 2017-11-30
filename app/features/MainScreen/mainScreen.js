@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Modal, Text, StyleSheet, Button } from 'react-native';
-import { NavigationActions } from 'react-navigation';
-import { connect } from 'react-redux';
 import { Ionicons } from '@expo/vector-icons';
-import mapActionsToProps from '../../config/actions';
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as allActionCreators from './actions';
 import PropTypes from 'prop-types';
 
 import { Header } from '../../components';
@@ -84,6 +85,11 @@ function mapStateToProps(state) {
   };
 }
 
-MainScreen = connect(mapStateToProps, mapActionsToProps)(MainScreen);
+const mapDispatchToProps = dispatch => ({
+  ...bindActionCreators(allActionCreators, dispatch),
+  dispatch,
+});
+
+MainScreen = connect(mapStateToProps, mapDispatchToProps)(MainScreen);
 
 export default MainScreen;

@@ -1,13 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
-import { addNavigationHelpers } from 'react-navigation';
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as allActionCreators from './actions';
 import PropTypes from 'prop-types';
-import mapActionsToProps from '../config/actions';
+
+import { addNavigationHelpers } from 'react-navigation';
 import AppNavigator from '../config/appNavigator';
-import styles from './styles';
 
 import LoginScreen from './LoginScreen';
+import styles from './styles';
 
 class RootComponent extends React.Component {
   constructor(props) {
@@ -66,6 +69,11 @@ function mapStateToProps(state) {
   };
 }
 
-RootComponent = connect(mapStateToProps, mapActionsToProps)(RootComponent);
+const mapDispatchToProps = dispatch => ({
+  ...bindActionCreators(allActionCreators, dispatch),
+  dispatch,
+});
+
+RootComponent = connect(mapStateToProps, mapDispatchToProps)(RootComponent);
 
 export default RootComponent;
