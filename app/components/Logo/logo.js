@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 
 export default class Logo extends React.Component {
   render() {
-    const { logoContainer, logoBraces, logoTitle } = this.props;
+    const {
+      logoContainer, logoBraces, logoTitle,
+    } = this.props;
+    const titleText = this.props.titleText ? this.props.titleText : 'epamer';
 
     return (
       <View style={logoContainer}>
@@ -16,7 +19,7 @@ export default class Logo extends React.Component {
           style={logoTitle}
           includeFontPadding={false}
         >
-        epamer
+          {titleText}
         </Text>
         <Image
           source={require('../../assets/images/right-braces.png')}

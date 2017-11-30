@@ -8,14 +8,13 @@ const styles = StyleSheet.create({
   },
   logoTitle: {
     fontFamily: 'oswald-bold',
-    fontSize: 70,
+    fontSize: 20,
     textAlign: 'center',
+    color: '#FFFFFF',
   },
   logoBraces: {
-    marginTop: 38,
-    width: 26,
-    height: 45,
+    marginTop: 7,
+    width: 9,
+    height: 16,
   },
 });
-
-export default styles;

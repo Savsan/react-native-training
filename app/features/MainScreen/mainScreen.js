@@ -5,27 +5,27 @@ import { connect } from 'react-redux';
 import { Ionicons } from '@expo/vector-icons';
 import mapActionsToProps from '../../config/actions';
 import PropTypes from 'prop-types';
+
+import { Header } from '../../components';
 import styles from './styles';
 
 class MainScreen extends React.Component {
-  static navigationOptions = ({ screenProps }) => ({
-    title: 'Main screen',
-    headerRight:
-  <Ionicons
-    style={{ marginRight: 20 }}
-    name="md-person"
-    size={32}
-    color="black"
-    onPress={screenProps.mainScreen.openMainScreenModal}
-  />,
-  });
+  static navigationOptions = ({ screenProps }) => {
+    const openModal = screenProps.mainScreen.openMainScreenModal;
+
+    return ({
+      header: <Header
+        title="epamer"
+        isLeftHeaderVisible={false}
+        isRightHeaderVisible
+        onLeftHeaderPress={false}
+        onRightHeaderPress={openModal}
+      />,
+    });
+  };
 
   constructor(props) {
     super(props);
-    this.state = {
-      isAuthorised: false,
-    };
-
     this.closeModal = this.closeModal.bind(this);
   }
 
@@ -72,6 +72,7 @@ class MainScreen extends React.Component {
 MainScreen.propTypes = {
   mainScreen: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
+  closeMainScreenModal: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
