@@ -24,12 +24,11 @@ const styles = StyleSheet.create({
     height: 45,
   },
   loginTextInputContainer: {
-    width: 300,
+    alignSelf: 'stretch',
     height: 120,
     justifyContent: 'space-between',
   },
   loginTextInput: {
-    width: 300,
     padding: 10,
     borderWidth: 1,
     borderColor: '#979797',
@@ -37,7 +36,7 @@ const styles = StyleSheet.create({
     color: '#464547',
   },
   loginButtonContainer: {
-    width: 300,
+    alignSelf: 'stretch',
     backgroundColor: '#A3C644',
   },
   loginButton: {

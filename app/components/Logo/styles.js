@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   logoContainer: {
-    width: 170,
     justifyContent: 'space-between',
     flexDirection: 'row',
   },
