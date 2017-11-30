@@ -8,30 +8,31 @@ import styles from './styles';
 export default class Header extends React.Component {
   render() {
     const {
-      onLeftHeaderPress, onRightHeaderPress,
-      isLeftHeaderVisible, isRightHeaderVisible, title,
+      onLeftIconPress, onRightIconPress,
+      leftIconName, rightIconName,
+      leftIconVisibility, rightIconVisibility, title,
     } = this.props;
 
     return (
       <View style={styles.headerContainer}>
         <View style={{ width: 32, height: 32, marginLeft: 15 }}>
-          {isLeftHeaderVisible &&
+          {leftIconVisibility &&
             <Ionicons
-              name="ios-arrow-round-back"
+              name={leftIconName}
               size={32}
               color="#FFFFFF"
-              onPress={onLeftHeaderPress}
+              onPress={onLeftIconPress}
             />
           }
         </View>
         <Logo {...styles} titleText={title} />
         <View style={{ width: 32, height: 32, marginRight: 15 }}>
-          {isRightHeaderVisible &&
+          {rightIconVisibility &&
             <Ionicons
-              name="md-person"
+              name={rightIconName}
               size={32}
               color="#FFFFFF"
-              onPress={onRightHeaderPress}
+              onPress={onRightIconPress}
             />
           }
         </View>

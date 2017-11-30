@@ -16,10 +16,12 @@ class MainScreen extends React.Component {
     return ({
       header: <Header
         title="epamer"
-        isLeftHeaderVisible={false}
-        isRightHeaderVisible
-        onLeftHeaderPress={false}
-        onRightHeaderPress={openModal}
+        leftIconName="ios-arrow-round-back"
+        leftIconVisibility={false}
+        onLeftIconPress={false}
+        rightIconVisibility
+        rightIconName="md-person"
+        onRightIconPress={openModal}
       />,
     });
   };

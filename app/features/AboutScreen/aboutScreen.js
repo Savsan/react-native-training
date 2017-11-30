@@ -9,10 +9,12 @@ export default class AboutScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     header: <Header
       title="about"
-      isLeftHeaderVisible
-      isRightHeaderVisible={false}
-      onLeftHeaderPress={() => navigation.goBack()}
-      onRightHeaderPress={false}
+      leftIconName="ios-arrow-round-back"
+      leftIconVisibility
+      onLeftIconPress={() => navigation.goBack()}
+      rightIconVisibility={false}
+      rightIconName=""
+      onRightIconPress={false}
     />,
   });
 
