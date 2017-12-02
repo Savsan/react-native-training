@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
+import { images } from '../../config';
 import PropTypes from 'prop-types';
 
 export default class Logo extends React.Component {
@@ -12,7 +13,7 @@ export default class Logo extends React.Component {
     return (
       <View style={logoContainer}>
         <Image
-          source={require('../../assets/images/left-braces.png')}
+          source={images.leftBraces}
           style={logoBraces}
         />
         <Text
@@ -22,10 +23,16 @@ export default class Logo extends React.Component {
           {titleText}
         </Text>
         <Image
-          source={require('../../assets/images/right-braces.png')}
+          source={images.rightBraces}
           style={logoBraces}
         />
       </View>
     );
   }
 }
+
+Logo.propTypes = {
+  logoContainer: PropTypes.number.isRequired,
+  logoBraces: PropTypes.number.isRequired,
+  logoTitle: PropTypes.number.isRequired,
+};

@@ -1,15 +1,16 @@
 import { StyleSheet } from 'react-native';
+import colors from '../../../../config/typography/colors';
 
 const styles = StyleSheet.create({
   loginForm: {
-    width: 300,
+    alignSelf: 'stretch',
     height: 400,
     marginBottom: 15,
     alignItems: 'center',
     justifyContent: 'space-around',
   },
   logoContainer: {
-    width: 300,
+    alignSelf: 'stretch',
     justifyContent: 'space-between',
     flexDirection: 'row',
   },
@@ -17,6 +18,7 @@ const styles = StyleSheet.create({
     fontFamily: 'oswald-bold',
     fontSize: 70,
     textAlign: 'center',
+    color: colors.GRAPHITE,
   },
   logoBraces: {
     marginTop: 38,
@@ -29,21 +31,21 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   loginTextInput: {
+    fontFamily: 'source-sans-pro-regular',
     padding: 10,
     borderWidth: 1,
-    borderColor: '#979797',
+    borderColor: colors.GRAY,
     fontSize: 16,
-    color: '#464547',
-  },
-  loginButtonContainer: {
-    alignSelf: 'stretch',
-    backgroundColor: '#A3C644',
+    color: colors.GRAPHITE,
   },
   loginButton: {
     paddingVertical: 15,
+    alignSelf: 'stretch',
+    backgroundColor: colors.LIME_GREEN,
   },
   loginButtonText: {
-    color: '#FFFFFF',
+    fontFamily: 'source-sans-pro-bold',
+    color: colors.WHITE,
     fontSize: 27,
     textAlign: 'center',
   },

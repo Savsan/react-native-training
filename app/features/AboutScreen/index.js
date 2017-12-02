@@ -1,3 +1,3 @@
-import AboutScreen from './aboutScreen';
+import AboutScreen from './AboutScreen';
 
 export default AboutScreen;

@@ -7,10 +7,9 @@ import * as allActionCreators from './actions';
 import PropTypes from 'prop-types';
 
 import { addNavigationHelpers } from 'react-navigation';
-import AppNavigator from '../config/appNavigator';
+import { AppNavigator } from '../config';
 
 import LoginScreen from './LoginScreen';
-import styles from './styles';
 
 class RootComponent extends React.Component {
   constructor(props) {
@@ -45,11 +44,9 @@ class RootComponent extends React.Component {
       );
     }
     return (
-      <View style={styles.container}>
-        <LoginScreen
-          initRequest={this.props.initRequest}
-        />
-      </View>
+      <LoginScreen
+        initRequest={this.props.initRequest}
+      />
     );
   }
 }

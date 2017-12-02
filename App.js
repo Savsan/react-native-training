@@ -2,43 +2,48 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
-
-import store from './app/config/store';
-
+import { images, fonts, colors } from './app/config';
 import { Ionicons } from '@expo/vector-icons';
 
 import { RootComponent } from './app/features';
 
+import store from './app/config/store';
+
 export default class App extends React.Component {
-  state = {
-    isLoadingComplete: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoadingComplete: false,
+    };
+  }
 
   _loadResourcesAsync = async () => Promise.all([
     Asset.loadAsync([
-      require('./app/assets/images/robot-dev.png'),
-      require('./app/assets/images/robot-prod.png'),
+      images.robotDev,
+      images.robotProd,
     ]),
     Font.loadAsync([
       Ionicons.font,
-      { 'oswald-bold': require('./app/assets/fonts/Oswald/Oswald-Bold.ttf') },
-      { 'oswald-light': require('./app/assets/fonts/Oswald/Oswald-Light.ttf') },
-      { 'oswald-regular': require('./app/assets/fonts/Oswald/Oswald-Regular.ttf') },
-      { 'open-sans-pro-bold': require('./app/assets/fonts/SourceSansPro/SourceSansPro-Bold.otf') },
-      { 'open-sans-pro-regular': require('./app/assets/fonts/SourceSansPro/SourceSansPro-Regular.otf') },
+      {
+        'oswald-bold': fonts.oswaldBold,
+        'oswald-light': fonts.oswaldLight,
+        'oswald-regular': fonts.oswaldRegular,
+        'source-sans-pro-bold': fonts.sourceSansProBold,
+        'source-sans-pro-regular': fonts.sourceSansProRegular,
+      },
     ]),
   ]);
 
   _handleLoadingError = (error) => {
-    console.warn(error);
-  };
+    throw new Error(error);
+  }
 
   _handleFinishLoading = () => {
     this.setState({ isLoadingComplete: true });
-  };
+  }
 
   render() {
-    if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
+    if (!this.state.isLoadingComplete) {
       return (
         <AppLoading
           startAsync={this._loadResourcesAsync}
@@ -65,6 +70,6 @@ const styles = StyleSheet.create({
   },
   statusBarUnderlay: {
     height: 24,
-    backgroundColor: 'black',
+    backgroundColor: colors.BLACK,
   },
 });

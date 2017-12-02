@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text, TextInput, TouchableHighlight, Image } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { Logo } from '../../../components';
+import { Logo } from '../../../../components';
+import { colors } from '../../../../config';
 import styles from './styles';
 
 export default class LoginForm extends React.Component {
@@ -12,25 +13,15 @@ export default class LoginForm extends React.Component {
       username: '',
       password: '',
     };
-    this.onChangeLoginInput = this.onChangeLoginInput.bind(this);
-    this.onChangePasswordInput = this.onChangePasswordInput.bind(this);
-    this.onPressLogin = this.onPressLogin.bind(this);
   }
 
-  onChangeLoginInput(value) {
-    this.setState({
-      username: value,
-    });
+  onInputChange = key => (value) => {
+    this.setState({ [key]: value });
   }
 
-  onChangePasswordInput(value) {
-    this.setState({
-      password: value,
-    });
-  }
-
-  onPressLogin() {
-    this.props.initRequest();
+  onPressLogin = () => {
+    const credentials = this.state;
+    this.props.initRequest(credentials);
   }
 
   render() {
@@ -41,29 +32,28 @@ export default class LoginForm extends React.Component {
           <TextInput
             style={styles.loginTextInput}
             placeholder="Username"
+            autoCorrect={false}
             underlineColorAndroid="transparent"
-            onChangeText={username => this.setState({ username })}
+            onChangeText={this.onInputChange('username')}
             value={this.state.username}
           />
           <TextInput
             style={styles.loginTextInput}
             placeholder="Password"
+            autoCorrect={false}
             secureTextEntry
             underlineColorAndroid="transparent"
-            onChangeText={password => this.setState({ password })}
+            onChangeText={this.onInputChange('password')}
             value={this.state.password}
           />
         </View>
-        <View style={styles.loginButtonContainer}>
-          <TouchableHighlight
-            onPress={this.onPressLogin}
-            underlayColor="#7F993A"
-          >
-            <View style={styles.loginButton}>
-              <Text style={styles.loginButtonText}>LOGIN</Text>
-            </View>
-          </TouchableHighlight>
-        </View>
+        <TouchableHighlight
+          style={styles.loginButton}
+          onPress={this.onPressLogin}
+          underlayColor={colors.DARK_GREEN}
+        >
+          <Text style={styles.loginButtonText}>LOGIN</Text>
+        </TouchableHighlight>
       </View>
     );
   }

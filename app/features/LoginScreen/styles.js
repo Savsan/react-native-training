@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
+  loginFormContainer: {
     flex: 1,
-    backgroundColor: '#fff',
+    paddingHorizontal: 25,
     alignItems: 'center',
     justifyContent: 'flex-end',
+    backgroundColor: '#fff',
   },
 });
 

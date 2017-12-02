@@ -2,6 +2,7 @@ export default function initReducerMiddleware({ dispatch }) {
   return next =>
     (action) => {
       if (action.type === 'AUTH_REQUEST') {
+        const credentials = action.payload;
         // Temp mock
         const authData = {
           isAuthorised: true,
