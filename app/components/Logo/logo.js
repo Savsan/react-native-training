@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import { images } from '../../config';
+import images from 'images';
 import PropTypes from 'prop-types';
 
 export default class Logo extends React.Component {

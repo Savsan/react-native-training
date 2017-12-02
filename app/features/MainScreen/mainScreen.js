@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import * as allActionCreators from './actions';
 import PropTypes from 'prop-types';
 
-import { Header } from '../../components';
+import { Header } from 'reusable-components';
 import styles from './styles';
 
 class MainScreen extends React.Component {

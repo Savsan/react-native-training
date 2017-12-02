@@ -1,6 +1,6 @@
 import { StackNavigator } from 'react-navigation';
-
-import { MainScreen, AboutScreen } from '../features';
+import MainScreen from 'features/MainScreen/MainScreen';
+import AboutScreen from 'features/AboutScreen/AboutScreen';
 
 const AppNavigator = StackNavigator({
   Main: { screen: MainScreen },

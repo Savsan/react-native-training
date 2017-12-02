@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Text, TextInput, TouchableHighlight, Image } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { Logo } from '../../../../components';
-import { colors } from '../../../../config';
+import { Logo } from 'reusable-components';
+import { colors } from 'typography';
 import styles from './styles';
 
 export default class LoginForm extends React.Component {

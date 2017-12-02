@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import colors from '../../../../config/typography/colors';
+import { colors } from 'typography';
 
 const styles = StyleSheet.create({
   loginForm: {

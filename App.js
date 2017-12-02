@@ -2,12 +2,13 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
-import { images, fonts, colors } from './app/config';
+import { colors, fonts } from 'typography';
+import images from 'images';
 import { Ionicons } from '@expo/vector-icons';
 
-import { RootComponent } from './app/features';
+import { RootComponent } from 'features';
 
-import store from './app/config/store';
+import store from 'config/store';
 
 export default class App extends React.Component {
   constructor(props) {

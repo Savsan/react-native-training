@@ -4,5 +4,21 @@
     "development": {
       "plugins": ["transform-react-jsx-source"]
     }
-  }
+  },
+  "plugins": [
+    [
+      "babel-plugin-module-resolver", {
+        "cwd": "babelrc",
+        "alias": {
+          "app": "./app",
+          "reusable-components": "./app/components",
+          "features": "./app/features",
+          "config": "./app/config",
+          "typography": "./app/config/typography",
+          "images": "./app/config/images",
+          "navigation": "./app/config/navigation",
+        }
+      }
+    ]
+  ]
 }

@@ -7,7 +7,7 @@ import * as allActionCreators from './actions';
 import PropTypes from 'prop-types';
 
 import { addNavigationHelpers } from 'react-navigation';
-import { AppNavigator } from '../config';
+import AppNavigator from 'navigation';
 
 import LoginScreen from './LoginScreen';
 
