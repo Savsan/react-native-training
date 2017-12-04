@@ -7,28 +7,12 @@ import { bindActionCreators } from 'redux';
 import * as allActionCreators from './actions';
 import PropTypes from 'prop-types';
 
-import { Header, ActionsButton } from 'reusable-components';
+import { Header, ActionsButton, Logo } from 'reusable-components';
 import ActionsModal from './components';
 import { colors } from 'typography';
 import styles from './styles';
 
 class MainScreen extends React.Component {
-  static navigationOptions = ({ screenProps }) => {
-    const openModal = screenProps.mainScreen.openMainScreenModal;
-
-    return ({
-      header: <Header
-        title="epamer"
-        leftIconName="ios-arrow-round-back"
-        leftIconVisibility={false}
-        onLeftIconPress={false}
-        rightIconVisibility
-        rightIconName="md-person"
-        onRightIconPress={openModal}
-      />,
-    });
-  };
-
   render() {
     return (
       <View style={styles.container}>

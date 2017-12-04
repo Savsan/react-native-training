@@ -2,11 +2,8 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   headerContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    alignSelf: 'center',
     alignItems: 'center',
-    backgroundColor: 'black',
-    height: 45,
   },
   logoContainer: {
     flexDirection: 'row',
