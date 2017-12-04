@@ -16,7 +16,7 @@
           "config": "./app/config",
           "typography": "./app/config/typography",
           "images": "./app/config/images",
-          "navigation": "./app/config/navigation",
+          "navigation": "./app/features/AppNavigator",
         }
       }
     ]
