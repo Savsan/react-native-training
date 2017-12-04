@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  headerContainer: {
-    alignSelf: 'center',
-    alignItems: 'center',
+  headerStyle: {
+    backgroundColor: 'black',
+    paddingHorizontal: 20,
   },
   logoContainer: {
     flexDirection: 'row',
+    alignSelf: 'center',
   },
   logoTitle: {
     fontFamily: 'oswald-bold',
