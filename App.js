@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { RootComponent } from 'features';
 
-import store from 'config/store';
+import store from './app/store/store';
 
 export default class App extends React.Component {
   constructor(props) {
