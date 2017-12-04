@@ -13,7 +13,7 @@ export default class ActionsModal extends React.Component {
     this.props.closeMainScreenModal();
   }
 
-  navigateTo(screenName) {
+  navigateTo = screenName => () => {
     this.props.navigation.navigate(screenName);
     this.closeModal();
   }
@@ -22,22 +22,22 @@ export default class ActionsModal extends React.Component {
     let actionButtons;
     const actionButtonsConfig = [
       {
-        iconName: 'md-home', color: `${colors.LIGHT_GRAY}`, size: 84, subtitle: 'Home', onPress: () => { this.navigateTo('Home'); },
+        iconName: 'md-home', color: `${colors.LIGHT_GRAY}`, size: 84, subtitle: 'Home', onPress: this.navigateTo('Home'),
       },
       {
-        iconName: 'ios-briefcase', color: `${colors.LIGHT_GRAY}`, size: 84, subtitle: 'Work', onPress: () => { this.navigateTo('Work'); },
+        iconName: 'ios-briefcase', color: `${colors.LIGHT_GRAY}`, size: 84, subtitle: 'Work', onPress: this.navigateTo('Work'),
       },
       {
-        iconName: 'md-star', color: `${colors.LIGHT_GRAY}`, size: 84, subtitle: 'ASMT', onPress: () => { this.navigateTo('ASMT'); },
+        iconName: 'md-star', color: `${colors.LIGHT_GRAY}`, size: 84, subtitle: 'ASMT', onPress: this.navigateTo('ASMT'),
       },
       {
-        iconName: 'ios-chatbubbles', color: `${colors.LIGHT_GRAY}`, size: 84, subtitle: 'Soft', onPress: () => { this.navigateTo('Soft'); },
+        iconName: 'ios-chatbubbles', color: `${colors.LIGHT_GRAY}`, size: 84, subtitle: 'Soft', onPress: this.navigateTo('Soft'),
       },
       {
-        iconName: 'md-code', color: `${colors.LIGHT_GRAY}`, size: 84, subtitle: 'Hard', onPress: () => { this.navigateTo('Hard'); },
+        iconName: 'md-code', color: `${colors.LIGHT_GRAY}`, size: 84, subtitle: 'Hard', onPress: this.navigateTo('Hard'),
       },
       {
-        iconName: 'md-book', color: `${colors.LIGHT_GRAY}`, size: 84, subtitle: 'About', onPress: () => { this.navigateTo('About'); },
+        iconName: 'md-book', color: `${colors.LIGHT_GRAY}`, size: 84, subtitle: 'About', onPress: this.navigateTo('About'),
       },
     ];
 
