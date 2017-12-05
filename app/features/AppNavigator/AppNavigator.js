@@ -5,6 +5,7 @@ import AboutScreen from 'features/AboutScreen/AboutScreen';
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { Logo } from 'reusable-components';
+import { colors } from 'typography';
 import HeaderLeft from './components';
 import styles from './styles';
 
@@ -30,7 +31,7 @@ const AppNavigator = StackNavigator(
         headerRight: <Ionicons
           name="md-person"
           size={28}
-          color="#FFFFFF"
+          color={colors.WHITE}
           onPress={openModal}
         />,
         headerLeft: <HeaderLeft

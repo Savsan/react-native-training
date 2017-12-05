@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { colors } from 'typography';
 
 const styles = StyleSheet.create({
   loginFormContainer: {
@@ -6,7 +7,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     alignItems: 'center',
     justifyContent: 'flex-end',
-    backgroundColor: '#fff',
+    backgroundColor: colors.WHITE,
   },
 });
 

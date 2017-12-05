@@ -6,4 +6,4 @@ const fonts = {
   sourceSansProRegular: require('../../assets/fonts/SourceSansPro/SourceSansPro-Regular.otf'),
 };
 
-export default fonts;
+export { fonts };

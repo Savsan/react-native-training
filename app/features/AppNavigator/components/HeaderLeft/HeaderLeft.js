@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { colors } from 'typography';
 
 export default class HeaderLeft extends React.Component {
   previousScreen = () => {
