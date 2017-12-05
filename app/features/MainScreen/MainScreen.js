@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 
 import { Header, ActionsButton, Logo, Avatar, ProgressBar } from 'reusable-components';
 import ActionsModal from './components';
-import { colors } from 'typography';
 import styles from './styles';
 
 class MainScreen extends React.Component {
@@ -22,19 +21,19 @@ class MainScreen extends React.Component {
         <View style={styles.progressBarContainer}>
           <ProgressBar
             title="Personal"
-            percent={10}
+            value={10}
           />
           <ProgressBar
             title="Project Activities"
-            percent={50}
+            value={50}
           />
           <ProgressBar
             title="Soft Skills"
-            percent={70}
+            value={70}
           />
           <ProgressBar
             title="Hard Skills"
-            percent={60}
+            value={60}
           />
         </View>
         <ActionsModal

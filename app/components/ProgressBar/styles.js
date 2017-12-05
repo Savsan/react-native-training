@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   progressScale: {
     height: 10,
     backgroundColor: colors.RASPBERRY,
+    borderRadius: 3,
   },
 });
 
