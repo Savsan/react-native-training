@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import * as allActionCreators from './actions';
 import PropTypes from 'prop-types';
 
-import { Header, ActionsButton, Logo } from 'reusable-components';
+import { Header, ActionsButton, Logo, Avatar, ProgressBar } from 'reusable-components';
 import ActionsModal from './components';
 import { colors } from 'typography';
 import styles from './styles';
@@ -16,7 +16,27 @@ class MainScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>MainScreen</Text>
+        <View style={styles.avatarContainer}>
+          <Avatar />
+        </View>
+        <View style={styles.progressBarContainer}>
+          <ProgressBar
+            title="Personal"
+            percent={10}
+          />
+          <ProgressBar
+            title="Project Activities"
+            percent={50}
+          />
+          <ProgressBar
+            title="Soft Skills"
+            percent={70}
+          />
+          <ProgressBar
+            title="Hard Skills"
+            percent={60}
+          />
+        </View>
         <ActionsModal
           closeMainScreenModal={this.props.closeMainScreenModal}
           isOpenedModal={this.props.mainScreen.isOpenedModal}

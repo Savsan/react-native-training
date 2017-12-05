@@ -1,5 +1,6 @@
 import ActionsButton from './ActionsButton';
-import Header from './Header';
 import Logo from './Logo';
+import ProgressBar from './ProgressBar';
+import Avatar from './Avatar';
 
-export { ActionsButton, Header, Logo };
+export { ActionsButton, Logo, ProgressBar, Avatar };
