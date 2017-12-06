@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { colors } from 'typography';
+import { colors, fonts } from 'typography';
 
 const styles = StyleSheet.create({
   progressBarTitle: {
     fontSize: 16,
-    fontFamily: 'source-sans-pro-bold',
+    fontFamily: fonts.SOURCE_SANS_PRO_BOLD,
     color: colors.MEDIUM_GRAY,
   },
   progressBar: {

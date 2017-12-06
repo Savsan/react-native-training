@@ -20,7 +20,7 @@ export default class HeaderLeft extends React.Component {
         <Ionicons
           name="md-arrow-back"
           size={24}
-          color="#FFFFFF"
+          color={colors.WHITE}
           onPress={this.previousScreen}
         />
         }

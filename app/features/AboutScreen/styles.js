@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { colors, fonts } from 'typography';
 
 const styles = StyleSheet.create({
   logoContainer: {
@@ -7,10 +8,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   logoTitle: {
-    fontFamily: 'oswald-bold',
+    fontFamily: fonts.OSWALD_BOLD,
     fontSize: 20,
     textAlign: 'center',
-    color: '#FFFFFF',
+    color: colors.WHITE,
   },
   logoBraces: {
     marginTop: 7,

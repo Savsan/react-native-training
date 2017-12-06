@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors } from 'typography';
+import { colors, fonts } from 'typography';
 
 const styles = StyleSheet.create({
   actionsButton: {
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     borderColor: colors.LIGHT_GRAY,
   },
   actionsButtonSubtitle: {
-    fontFamily: 'source-sans-pro-regular',
+    fontFamily: fonts.SOURCE_SANS_PRO_REGULAR,
     fontSize: 17,
     textAlign: 'center',
     color: colors.WHITE,

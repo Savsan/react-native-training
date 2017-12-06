@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors } from 'typography';
+import { colors, fonts } from 'typography';
 
 const styles = StyleSheet.create({
   loginForm: {
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   logoTitle: {
-    fontFamily: 'oswald-bold',
+    fontFamily: fonts.OSWALD_BOLD,
     fontSize: 70,
     textAlign: 'center',
     color: colors.GRAPHITE,
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   loginTextInput: {
-    fontFamily: 'source-sans-pro-regular',
+    fontFamily: fonts.SOURCE_SANS_PRO_REGULAR,
     padding: 10,
     borderWidth: 1,
     borderColor: colors.GRAY,
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.LIME_GREEN,
   },
   loginButtonText: {
-    fontFamily: 'source-sans-pro-bold',
+    fontFamily: fonts.SOURCE_SANS_PRO_BOLD,
     color: colors.WHITE,
     fontSize: 27,
     textAlign: 'center',

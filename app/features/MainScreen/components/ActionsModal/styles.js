@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { colors } from 'typography';
+import { colors, fonts } from 'typography';
 
 const styles = StyleSheet.create({
   modalContent: {
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalSubtitle: {
-    fontFamily: 'oswald-bold',
+    fontFamily: fonts.OSWALD_BOLD,
     color: colors.SHARP_BLUE,
   },
   modalActionsContainer: {
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   logoTitle: {
-    fontFamily: 'oswald-bold',
+    fontFamily: fonts.OSWALD_BOLD,
     fontSize: 24,
     textAlign: 'center',
     color: colors.WHITE,

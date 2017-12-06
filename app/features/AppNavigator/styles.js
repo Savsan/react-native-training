@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors } from 'typography';
+import { colors, fonts } from 'typography';
 
 const styles = StyleSheet.create({
   headerStyle: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   logoTitle: {
-    fontFamily: 'oswald-bold',
+    fontFamily: fonts.OSWALD_BOLD,
     fontSize: 20,
     textAlign: 'center',
     color: colors.WHITE,

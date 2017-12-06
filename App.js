@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
-import { colors, fonts } from 'typography';
+import { colors, fontAssets } from 'typography';
 import images from 'images';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -26,11 +26,11 @@ export default class App extends React.Component {
     Font.loadAsync([
       Ionicons.font,
       {
-        'oswald-bold': fonts.oswaldBold,
-        'oswald-light': fonts.oswaldLight,
-        'oswald-regular': fonts.oswaldRegular,
-        'source-sans-pro-bold': fonts.sourceSansProBold,
-        'source-sans-pro-regular': fonts.sourceSansProRegular,
+        'oswald-bold': fontAssets.oswaldBold,
+        'oswald-light': fontAssets.oswaldLight,
+        'oswald-regular': fontAssets.oswaldRegular,
+        'source-sans-pro-bold': fontAssets.sourceSansProBold,
+        'source-sans-pro-regular': fontAssets.sourceSansProRegular,
       },
     ]),
   ]);
