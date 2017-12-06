@@ -59,4 +59,5 @@ export default class ProgressBar extends React.Component {
 
 ProgressBar.propTypes = {
   title: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
 };

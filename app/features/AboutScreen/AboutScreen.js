@@ -7,8 +7,8 @@ import styles from './styles';
 export default class AboutScreen extends React.Component {
   render() {
     return (
-      <View>
-        <Text>AboutScreen</Text>
+      <View style={styles.aboutScreenContainer}>
+        <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas</Text>
       </View>
     );
   }
