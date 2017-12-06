@@ -32,6 +32,9 @@ export default class ProgressBar extends React.Component {
 
   render() {
     const { title } = this.props;
+    const scaleEndingStyle = this.props.value !== 100
+      ? styles.progressScaleBleed
+      : null;
 
     return (
       <View style={styles.progressBarContainer}>
@@ -45,7 +48,9 @@ export default class ProgressBar extends React.Component {
               styles.progressScale,
               { width: this.state.calculatedPercent },
             ]}
-          />
+          >
+            <View style={scaleEndingStyle} />
+          </View>
         </View>
       </View>
     );

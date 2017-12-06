@@ -29,7 +29,7 @@ class MainScreen extends React.Component {
           />
           <ProgressBar
             title="Soft Skills"
-            value={70}
+            value={100}
           />
           <ProgressBar
             title="Hard Skills"

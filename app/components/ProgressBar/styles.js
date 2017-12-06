@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     color: colors.MEDIUM_GRAY,
   },
   progressBar: {
+    position: 'relative',
     height: 10,
     backgroundColor: colors.GRAPHITE,
     borderRadius: 3,
@@ -16,6 +17,15 @@ const styles = StyleSheet.create({
     height: 10,
     backgroundColor: colors.RASPBERRY,
     borderRadius: 3,
+  },
+  progressScaleBleed: {
+    position: 'absolute',
+    right: -14,
+    top: 0,
+    width: 20,
+    height: 20,
+    backgroundColor: colors.GRAPHITE,
+    transform: [{ rotate: '45deg' }],
   },
 });
 
