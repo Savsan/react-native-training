@@ -12,29 +12,34 @@ import ActionsModal from './components';
 import styles from './styles';
 
 class MainScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      progressConfig: [
+        { title: 'Personal', value: 10 },
+        { title: 'Project Activities', value: 50 },
+        { title: 'Soft Skills', value: 100 },
+        { title: 'Hard Skills', value: 60 },
+      ],
+    };
+  }
+
   render() {
+    const progressBars = this.state.progressConfig.map(bar => (<ProgressBar
+      key={bar.title}
+      title={bar.title}
+      value={bar.value}
+    />));
+
     return (
       <View style={styles.container}>
         <View style={styles.avatarContainer}>
-          <Avatar />
+          <Avatar
+            opacityAnimate
+          />
         </View>
         <View style={styles.progressBarContainer}>
-          <ProgressBar
-            title="Personal"
-            value={10}
-          />
-          <ProgressBar
-            title="Project Activities"
-            value={50}
-          />
-          <ProgressBar
-            title="Soft Skills"
-            value={100}
-          />
-          <ProgressBar
-            title="Hard Skills"
-            value={60}
-          />
+          {progressBars}
         </View>
         <ActionsModal
           closeMainScreenModal={this.props.closeMainScreenModal}
