@@ -1,7 +1,6 @@
 import LoginScreen from './LoginScreen';
 import MainScreen from './MainScreen';
-import ActionsScreen from './ActionsScreen';
 import AboutScreen from './AboutScreen';
-import RootComponent from './RootComponent';
+import LauncherComponent from './LauncherComponent';
 
-export { RootComponent, LoginScreen, MainScreen, ActionsScreen, AboutScreen };
+export { LauncherComponent, LoginScreen, MainScreen, AboutScreen };

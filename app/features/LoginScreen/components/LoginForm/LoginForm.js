@@ -10,17 +10,23 @@ export default class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: '',
+      credentials: {
+        username: '',
+        password: '',
+      },
     };
   }
 
   onInputChange = key => (value) => {
-    this.setState({ [key]: value });
+    this.setState({
+      credentials: {
+        [key]: value,
+      },
+    });
   }
 
   onPressLogin = () => {
-    const credentials = this.state;
+    const { credentials } = this.state;
     this.props.initRequest(credentials);
   }
 

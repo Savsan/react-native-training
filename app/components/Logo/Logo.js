@@ -31,8 +31,13 @@ export default class Logo extends React.Component {
   }
 }
 
+Logo.defaultProps = {
+  titleText: 'epamer',
+};
+
 Logo.propTypes = {
   logoContainer: PropTypes.number.isRequired,
   logoBraces: PropTypes.number.isRequired,
   logoTitle: PropTypes.number.isRequired,
+  titleText: PropTypes.string,
 };

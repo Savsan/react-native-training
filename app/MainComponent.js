@@ -6,12 +6,12 @@ import { fontAssets } from 'typography';
 import images from 'images';
 import { Ionicons } from '@expo/vector-icons';
 
-import { RootComponent } from 'features';
+import { LauncherComponent } from 'features';
 import { styles } from './styles';
 
 import store from './store/store';
 
-export default class Index extends React.Component {
+export default class MainComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,7 +59,7 @@ export default class Index extends React.Component {
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
           {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
-          <RootComponent />
+          <LauncherComponent />
         </View>
       </Provider>
     );

@@ -4,15 +4,15 @@ import { colors, fonts } from 'typography';
 const styles = StyleSheet.create({
   loginForm: {
     alignSelf: 'stretch',
-    height: 400,
-    marginBottom: 15,
+    marginBottom: 35,
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
   },
   logoContainer: {
     alignSelf: 'stretch',
     justifyContent: 'space-between',
     flexDirection: 'row',
+    marginBottom: 35,
   },
   logoTitle: {
     fontFamily: fonts.OSWALD_BOLD,
@@ -27,16 +27,17 @@ const styles = StyleSheet.create({
   },
   loginTextInputContainer: {
     alignSelf: 'stretch',
-    height: 120,
     justifyContent: 'space-between',
+    marginBottom: 20,
   },
   loginTextInput: {
-    fontFamily: fonts.SOURCE_SANS_PRO_REGULAR,
+    fontFamily: fonts.SOURCE_SANS_PRO_BOLD,
     padding: 10,
     borderWidth: 1,
     borderColor: colors.GRAY,
-    fontSize: 16,
+    fontSize: 20,
     color: colors.GRAPHITE,
+    marginBottom: 35,
   },
   loginButton: {
     paddingVertical: 15,

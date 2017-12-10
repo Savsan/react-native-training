@@ -55,7 +55,6 @@ export default class ActionsModal extends React.Component {
         animationType="slide"
         transparent
         visible={this.props.isOpenedModal}
-        onRequestClose={() => alert('Modal was closed')}
       >
         <View style={styles.modalContent} style={styles.modalContent}>
           <View style={styles.modalCloseButtonContainer}>

@@ -72,6 +72,4 @@ const mapDispatchToProps = dispatch => ({
   dispatch,
 });
 
-MainScreen = connect(mapStateToProps, mapDispatchToProps)(MainScreen);
-
-export default MainScreen;
+export default connect(mapStateToProps, mapDispatchToProps)(MainScreen);
