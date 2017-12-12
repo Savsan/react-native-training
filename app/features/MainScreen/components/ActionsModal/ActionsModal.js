@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, Modal, Button, Dimensions, PanResponder } from 'react-native';
+import { View, Text, Modal, Button,
+  Dimensions, PanResponder, Animated, Easing } from 'react-native';
 import PropTypes from 'prop-types';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -11,6 +12,7 @@ import styles from './styles';
 export default class ActionsModal extends React.Component {
   constructor(props) {
     super(props);
+    this.restorePositionValue = new Animated.Value(0);
     this.state = {
       topPosition: 0,
       dimensions: Dimensions.get('window'),
@@ -26,18 +28,35 @@ export default class ActionsModal extends React.Component {
         });
       },
       onPanResponderRelease: () => {
-        if (this.state.topPosition > 100) {
+        const lastPositionY = this.state.topPosition;
+        if (this.state.topPosition > 400) {
           this.closeModal();
           this.setState({
             topPosition: 0,
           });
         } else {
           this.setState({
-            topPosition: 0,
+            topPosition: this.restorePositionValue.interpolate({
+              inputRange: [0, 1],
+              outputRange: [lastPositionY, 0],
+            }),
           });
+          this.restorePosition();
         }
       },
     });
+  }
+
+  restorePosition() {
+    Animated.timing(
+      this.restorePositionValue,
+      {
+        toValue: 1,
+        duration: 1000,
+        easing: Easing.bounce,
+        delay: 0,
+      },
+    ).start();
   }
 
   closeModal = () => {
@@ -87,7 +106,12 @@ export default class ActionsModal extends React.Component {
         transparent
         visible={this.props.isOpenedModal}
       >
-        <View style={[styles.modalContent, { top: this.state.topPosition }]}>
+        <Animated.View
+          style={[
+            styles.modalContent,
+            { top: this.state.topPosition },
+          ]}
+        >
           <View
             style={styles.panResponderHandler}
             {...this._panResponder.panHandlers}
@@ -108,7 +132,7 @@ export default class ActionsModal extends React.Component {
           <View style={styles.modalActionsContainer}>
             {actionButtons}
           </View>
-        </View>
+        </Animated.View>
       </Modal>
     );
   }
