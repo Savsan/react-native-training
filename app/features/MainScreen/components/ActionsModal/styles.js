@@ -47,6 +47,14 @@ const styles = StyleSheet.create({
     width: 10,
     height: 16,
   },
+  panResponderHandler: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 250,
+    backgroundColor: 'red',
+  },
 });
 
 export default styles;

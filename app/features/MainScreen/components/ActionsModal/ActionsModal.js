@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Modal, Button, Dimensions } from 'react-native';
+import { View, Text, Modal, Button, Dimensions, PanResponder } from 'react-native';
 import PropTypes from 'prop-types';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -9,6 +9,37 @@ import { colors } from 'typography';
 import styles from './styles';
 
 export default class ActionsModal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      topPosition: 0,
+      dimensions: Dimensions.get('window'),
+    };
+  }
+
+  componentWillMount() {
+    this._panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onPanResponderMove: (evt, gestureState) => {
+        this.setState({
+          topPosition: gestureState.moveY - gestureState.y0,
+        });
+      },
+      onPanResponderRelease: () => {
+        if (this.state.topPosition > 100) {
+          this.closeModal();
+          this.setState({
+            topPosition: 0,
+          });
+        } else {
+          this.setState({
+            topPosition: 0,
+          });
+        }
+      },
+    });
+  }
+
   closeModal = () => {
     this.props.closeMainScreenModal();
   }
@@ -56,7 +87,11 @@ export default class ActionsModal extends React.Component {
         transparent
         visible={this.props.isOpenedModal}
       >
-        <View style={styles.modalContent} style={styles.modalContent}>
+        <View style={[styles.modalContent, { top: this.state.topPosition }]}>
+          <View
+            style={styles.panResponderHandler}
+            {...this._panResponder.panHandlers}
+          />
           <View style={styles.modalCloseButtonContainer}>
             <ActionsButton
               style={styles.modalCloseButton}
