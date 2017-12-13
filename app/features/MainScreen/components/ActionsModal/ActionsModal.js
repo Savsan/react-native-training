@@ -15,7 +15,7 @@ export default class ActionsModal extends React.Component {
     this.restorePositionValue = new Animated.Value(0);
     this.state = {
       topPosition: 0,
-      dimensions: Dimensions.get('window'),
+      swipeDistanse: 170,
     };
   }
 
@@ -23,36 +23,55 @@ export default class ActionsModal extends React.Component {
     this._panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderMove: (evt, gestureState) => {
-        this.setState({
-          topPosition: gestureState.moveY - gestureState.y0,
-        });
+        this.moveModal(gestureState);
       },
       onPanResponderRelease: () => {
-        const lastPositionY = this.state.topPosition;
-        if (this.state.topPosition > 400) {
-          this.closeModal();
-          this.setState({
-            topPosition: 0,
-          });
-        } else {
-          this.setState({
-            topPosition: this.restorePositionValue.interpolate({
-              inputRange: [0, 1],
-              outputRange: [lastPositionY, 0],
-            }),
-          });
-          this.restorePosition();
-        }
+        this.checkModalAnimation();
       },
     });
   }
 
-  restorePosition() {
+  moveModal(gestureState) {
+    this.setState({
+      topPosition: gestureState.moveY - gestureState.y0,
+    });
+  }
+
+  checkModalAnimation() {
+    const { topPosition, swipeDistanse } = this.state;
+
+    if (topPosition > swipeDistanse) {
+      this.closeModal();
+    } else {
+      this.createModalAnimation();
+    }
+  }
+
+  restorePosition = () => {
+    this.setState({
+      topPosition: 0,
+    });
+  }
+
+  createModalAnimation() {
+    const lastPositionY = this.state.topPosition;
+    this.restorePositionValue.setValue(0);
+    this.setState({
+      topPosition: this.restorePositionValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: [lastPositionY, 0],
+      }),
+    });
+    this.restorePositionAnimated();
+  }
+
+  restorePositionAnimated() {
     Animated.timing(
       this.restorePositionValue,
       {
         toValue: 1,
-        duration: 1000,
+        duration: 700,
+        useNativeDriver: true,
         easing: Easing.bounce,
         delay: 0,
       },
@@ -61,6 +80,7 @@ export default class ActionsModal extends React.Component {
 
   closeModal = () => {
     this.props.closeMainScreenModal();
+    this.restorePosition();
   }
 
   navigateTo = screenName => () => {
@@ -105,17 +125,19 @@ export default class ActionsModal extends React.Component {
         animationType="slide"
         transparent
         visible={this.props.isOpenedModal}
+        onRequestClose={this.restorePosition}
       >
         <Animated.View
           style={[
             styles.modalContent,
-            { top: this.state.topPosition },
+            {
+              transform: [{
+                translateY: this.state.topPosition,
+              }],
+            },
           ]}
+          {...this._panResponder.panHandlers}
         >
-          <View
-            style={styles.panResponderHandler}
-            {...this._panResponder.panHandlers}
-          />
           <View style={styles.modalCloseButtonContainer}>
             <ActionsButton
               style={styles.modalCloseButton}
