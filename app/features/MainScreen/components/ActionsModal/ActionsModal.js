@@ -15,7 +15,7 @@ export default class ActionsModal extends React.Component {
     this.restorePositionValue = new Animated.Value(0);
     this.state = {
       topPosition: 0,
-      swipeDistanse: 170,
+      swipeDistance: 170,
     };
   }
 
@@ -38,9 +38,9 @@ export default class ActionsModal extends React.Component {
   }
 
   checkModalAnimation() {
-    const { topPosition, swipeDistanse } = this.state;
+    const { topPosition, swipeDistance } = this.state;
 
-    if (topPosition > swipeDistanse) {
+    if (topPosition > swipeDistance) {
       this.closeModal();
     } else {
       this.createModalAnimation();
