@@ -4,7 +4,7 @@ import { View, Text, Modal, Button,
 import PropTypes from 'prop-types';
 import { Ionicons } from '@expo/vector-icons';
 
-import { ActionsButton, Logo } from 'reusable-components';
+import { ActionButton, Logo } from 'reusable-components';
 
 import { colors } from 'typography';
 import styles from './styles';
@@ -89,7 +89,6 @@ export default class ActionsModal extends React.Component {
   }
 
   render() {
-    let actionButtons;
     const actionButtonsConfig = [
       {
         iconName: 'md-home', color: `${colors.LIGHT_GRAY}`, size: 84, subtitle: 'Home', onPress: this.navigateTo('Home'),
@@ -111,14 +110,12 @@ export default class ActionsModal extends React.Component {
       },
     ];
 
-    if (actionButtonsConfig.length) {
-      actionButtons = actionButtonsConfig.map(config =>
-        (<ActionsButton
-          key={config.subtitle}
-          {...styles}
-          {...config}
-        />));
-    }
+    const actionButtons = actionButtonsConfig.map(config =>
+      (<ActionButton
+        key={config.subtitle}
+        {...styles}
+        {...config}
+      />));
 
     return (
       <Modal
@@ -139,7 +136,7 @@ export default class ActionsModal extends React.Component {
           {...this._panResponder.panHandlers}
         >
           <View style={styles.modalCloseButtonContainer}>
-            <ActionsButton
+            <ActionButton
               style={styles.modalCloseButton}
               iconName="ios-close"
               color={colors.WHITE}

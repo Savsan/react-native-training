@@ -4,6 +4,7 @@ const images = {
   robotProd: require('../../assets/images/robot-prod.png'),
   leftBraces: require('../../assets/images/logo/left-braces.png'),
   rightBraces: require('../../assets/images/logo/right-braces.png'),
+  vectorBlueBg: require('../../assets/images/backgrounds/vector-blue-bg.png'),
 };
 
 export default images;

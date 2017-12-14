@@ -5,16 +5,16 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 
-export default class ActionsButton extends React.Component {
+export default class ActionButton extends React.Component {
   render() {
     const {
-      size, iconName, subtitle, color, actionButton, onPress,
+      size, iconName, subtitle, color, onPress,
     } = this.props;
     const iconSize = size * 0.6;
 
     return (
       <View style={{ width: size }}>
-        <View style={{ width: size, height: size, position: 'relative' }}>
+        <View style={{ width: size, height: size }}>
           <TouchableOpacity
             style={styles.actionsButton}
             onPress={onPress}
@@ -33,3 +33,18 @@ export default class ActionsButton extends React.Component {
     );
   }
 }
+
+ActionButton.defaultProps = {
+  subtitle: false,
+};
+
+ActionButton.propTypes = {
+  size: PropTypes.number.isRequired,
+  iconName: PropTypes.string.isRequired,
+  subtitle: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+  ]),
+  color: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
+};

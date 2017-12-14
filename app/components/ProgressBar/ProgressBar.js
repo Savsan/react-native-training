@@ -38,7 +38,7 @@ export default class ProgressBar extends React.Component {
 
   calculatePercent(width) {
     const value = this.props.value > 100 ? 100 : this.props.value;
-    const progressBarWidth = !width ? this.state.progressBarWidth : width;
+    const progressBarWidth = width || this.state.progressBarWidth;
     const calculatedPercent = (progressBarWidth / 100) * value;
 
     this.setState({
@@ -48,8 +48,8 @@ export default class ProgressBar extends React.Component {
   }
 
   render() {
-    const { title } = this.props;
-    const scaleEndingStyle = this.props.value < 100
+    const { title, value } = this.props;
+    const scaleEndingStyle = value < 100
       ? styles.progressScaleBleed
       : null;
     const rise = this.scaleRiseValue.interpolate({

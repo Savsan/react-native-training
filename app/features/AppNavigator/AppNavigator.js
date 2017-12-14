@@ -1,12 +1,13 @@
-import { StackNavigator } from 'react-navigation';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { StackNavigator } from 'react-navigation';
+import { Ionicons } from '@expo/vector-icons';
+
 import MainScreen from 'features/MainScreen/MainScreen';
 import AboutScreen from 'features/AboutScreen/AboutScreen';
-import React from 'react';
-import { Ionicons } from '@expo/vector-icons';
+import HeaderLeft from './components';
 import { Logo } from 'reusable-components';
 import { colors } from 'typography';
-import HeaderLeft from './components';
 import styles from './styles';
 
 const AppNavigator = StackNavigator(

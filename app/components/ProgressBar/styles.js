@@ -3,12 +3,13 @@ import { colors, fonts } from 'typography';
 
 const styles = StyleSheet.create({
   progressBarTitle: {
+    marginTop: 10,
+    marginBottom: 3,
     fontSize: 16,
     fontFamily: fonts.SOURCE_SANS_PRO_BOLD,
-    color: colors.MEDIUM_GRAY,
+    color: colors.WHITE,
   },
   progressBar: {
-    position: 'relative',
     height: 10,
     backgroundColor: colors.GRAPHITE,
     borderRadius: 3,

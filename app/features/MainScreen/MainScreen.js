@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Modal, Text, Button } from 'react-native';
+import { View, Modal, Text, Button, FlatList, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { connect } from 'react-redux';
@@ -10,37 +10,45 @@ import PropTypes from 'prop-types';
 import { Header, ActionsButton, Logo, Avatar, ProgressBar } from 'reusable-components';
 import ActionsModal from './components';
 import styles from './styles';
+import images from 'images';
 
 class MainScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      progressConfig: [
-        { title: 'Personal', value: 10 },
-        { title: 'Project Activities', value: 50 },
-        { title: 'Soft Skills', value: 100 },
-        { title: 'Hard Skills', value: 60 },
-      ],
-    };
+    this.progressConfig = [
+      { title: 'Personal', value: 10 },
+      { title: 'Project Activities', value: 50 },
+      { title: 'Soft Skills', value: 100 },
+      { title: 'Hard Skills', value: 60 },
+    ];
   }
 
-  render() {
-    const progressBars = this.state.progressConfig.map(bar => (<ProgressBar
-      key={bar.title}
-      title={bar.title}
-      value={bar.value}
-    />));
+  keyExtractor = (item, index) => item.title;
 
+  renderBars = bars => (<ProgressBar
+    key={bars.item.title}
+    title={bars.item.title}
+    value={bars.item.value}
+  />);
+
+  render() {
     return (
       <View style={styles.container}>
+        <Image
+          source={images.vectorBlueBg}
+          style={{ position: 'absolute', left: 0, top: 0 }}
+        />
         <View style={styles.avatarContainer}>
           <Avatar
             opacityAnimate
           />
         </View>
-        <View style={styles.progressBarContainer}>
-          {progressBars}
-        </View>
+        <FlatList
+          style={styles.progressBarContainer}
+          data={this.progressConfig}
+          keyExtractor={this.keyExtractor}
+          renderItem={this.renderBars}
+        />
         <ActionsModal
           closeMainScreenModal={this.props.closeMainScreenModal}
           isOpenedModal={this.props.mainScreen.isOpenedModal}
