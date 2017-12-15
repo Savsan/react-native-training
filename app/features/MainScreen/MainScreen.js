@@ -21,6 +21,42 @@ class MainScreen extends React.Component {
       { title: 'Soft Skills', value: 100 },
       { title: 'Hard Skills', value: 60 },
     ];
+    this.state = {
+      isNight: false,
+    };
+  }
+
+  componentDidMount() {
+    this.getGeoLocation();
+
+    setTimeout(() => {
+      console.log(this.state);
+    }, 1000);
+  }
+
+  getGeoLocation() {
+    navigator.geolocation.getCurrentPosition(
+      (location) => {
+        this.setState({
+          location,
+        });
+        this.checkIsNight();
+      },
+      (error) => {
+        console.log(error);
+      },
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+    );
+  }
+
+  checkIsNight() {
+    const date = new Date(this.state.location.timestamp);
+    const hours = date.getHours();
+    const isNight = hours >= 22 || hours < 6;
+
+    this.setState({
+      isNight,
+    });
   }
 
   keyExtractor = (item, index) => item.title;
@@ -32,11 +68,16 @@ class MainScreen extends React.Component {
   />);
 
   render() {
+    const { isNight } = this.state;
+    const bgOpacity = isNight ? 0.5 : +!isNight;
+
     return (
       <View style={styles.container}>
         <Image
           source={images.vectorBlueBg}
-          style={{ position: 'absolute', left: 0, top: 0 }}
+          style={{
+            position: 'absolute', left: 0, top: 0, opacity: bgOpacity,
+          }}
         />
         <View style={styles.avatarContainer}>
           <Avatar
