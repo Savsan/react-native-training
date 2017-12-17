@@ -91,7 +91,7 @@ class MainScreen extends React.Component {
           renderItem={this.renderBars}
         />
         <ActionsModal
-          closeMainScreenModal={this.props.closeMainScreenModal}
+          toggleMainScreenModal={this.props.toggleMainScreenModal}
           isOpenedModal={this.props.mainScreen.isOpenedModal}
           navigation={this.props.navigation}
           username={this.props.user.username}
@@ -105,7 +105,7 @@ class MainScreen extends React.Component {
 MainScreen.propTypes = {
   mainScreen: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
-  closeMainScreenModal: PropTypes.func.isRequired,
+  toggleMainScreenModal: PropTypes.func.isRequired,
   navigation: PropTypes.object.isRequired,
 };
 

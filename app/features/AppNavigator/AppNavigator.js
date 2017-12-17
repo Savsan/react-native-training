@@ -18,7 +18,7 @@ const AppNavigator = StackNavigator(
   {
     headerMode: 'screen',
     navigationOptions: ({ navigation, screenProps }) => {
-      const openModal = screenProps.mainScreen.openMainScreenModal;
+      const toggleModal = screenProps.mainScreen.toggleMainScreenModal;
       const mainRouteName = 'Main';
       const { routeName } = navigation.state;
       const title = mainRouteName === routeName ? 'epamer' : routeName;
@@ -33,7 +33,7 @@ const AppNavigator = StackNavigator(
           name="md-person"
           size={28}
           color={colors.WHITE}
-          onPress={openModal}
+          onPress={toggleModal}
         />,
         headerLeft: <HeaderLeft
           navigation={navigation}

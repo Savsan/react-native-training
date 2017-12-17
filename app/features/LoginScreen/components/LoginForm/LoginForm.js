@@ -27,7 +27,7 @@ export default class LoginForm extends React.Component {
 
   onPressLogin = () => {
     const { credentials } = this.state;
-    this.props.initRequest(credentials);
+    this.props.authRequest(...credentials);
   }
 
   render() {
@@ -66,5 +66,5 @@ export default class LoginForm extends React.Component {
 }
 
 LoginForm.propTypes = {
-  initRequest: PropTypes.func.isRequired,
+  authRequest: PropTypes.func.isRequired,
 };

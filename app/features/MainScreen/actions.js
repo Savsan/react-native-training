@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
 
-const closeMainScreenModal = createAction('CLOSE_MAINSCREEN_MODAL');
+const toggleMainScreenModal = createAction('TOGGLE_MAINSCREEN_MODAL');
 
-export { closeMainScreenModal };
+export { toggleMainScreenModal };

@@ -37,16 +37,14 @@ class LauncherComponent extends React.Component {
           })}
           screenProps={{
             mainScreen: {
-              openMainScreenModal: this.props.openMainScreenModal,
+              toggleMainScreenModal: this.props.toggleMainScreenModal,
             },
           }}
         />
       );
     }
     return (
-      <LoginScreen
-        initRequest={this.props.initRequest}
-      />
+      <LoginScreen />
     );
   }
 }
@@ -55,8 +53,7 @@ LauncherComponent.propTypes = {
   dispatch: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   nav: PropTypes.object.isRequired,
-  initRequest: PropTypes.func.isRequired,
-  openMainScreenModal: PropTypes.func.isRequired,
+  toggleMainScreenModal: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {

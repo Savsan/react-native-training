@@ -79,7 +79,7 @@ export default class ActionsModal extends React.Component {
   }
 
   closeModal = () => {
-    this.props.closeMainScreenModal();
+    this.props.toggleMainScreenModal();
     this.restorePosition();
   }
 
@@ -158,7 +158,7 @@ export default class ActionsModal extends React.Component {
 }
 
 ActionsModal.propTypes = {
-  closeMainScreenModal: PropTypes.func.isRequired,
+  toggleMainScreenModal: PropTypes.func.isRequired,
   isOpenedModal: PropTypes.bool.isRequired,
   navigation: PropTypes.object.isRequired,
   username: PropTypes.string.isRequired,
