@@ -41,6 +41,7 @@ class MainScreen extends React.Component {
           location,
         });
         this.checkIsNight();
+        this.requestWeather();
       },
       (error) => {
         console.log(error);
@@ -49,7 +50,22 @@ class MainScreen extends React.Component {
     );
   }
 
+  requestWeather() {
+    const { latitude, longitude } = this.state.location.coords;
+
+    this.props.getWeatherData(latitude, longitude)
+      .then(response => response.json())
+      .then((weatherData) => {
+        dispatch(this.props.recieveWeatherData(weatherData));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   checkIsNight() {
+    console.log(this.props);
+    console.log(this.state);
     const date = new Date(this.state.location.timestamp);
     const hours = date.getHours();
     const isNight = hours >= 22 || hours < 6;
@@ -58,6 +74,7 @@ class MainScreen extends React.Component {
       isNight,
     });
   }
+
 
   keyExtractor = (item, index) => item.title;
 

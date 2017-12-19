@@ -1,9 +1,6 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
-
-import initialReducer from '../reducers/initialReducer';
-import mainScreenReducer from '../reducers/mainScreenReducer';
-import navReducer from '../reducers/navReducer';
+import { reducers } from './reducers';
 
 const DEVTOOLS_COMPOSER = '__REDUX_DEVTOOLS_EXTENSION_COMPOSE__';
 const composeWithDevTools = (typeof window === 'object' &&
@@ -12,11 +9,7 @@ const composeWithDevTools = (typeof window === 'object' &&
   : compose;
 
 const store = createStore(
-  combineReducers({
-    auth: initialReducer,
-    nav: navReducer,
-    mainScreen: mainScreenReducer,
-  }),
+  combineReducers(reducers),
   composeWithDevTools(applyMiddleware(thunk)),
 );
 
