@@ -28,10 +28,12 @@ class MainScreen extends React.Component {
 
   componentDidMount() {
     this.getGeoLocation();
+  }
 
-    setTimeout(() => {
-      console.log(this.state);
-    }, 1000);
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.weather) {
+      this.checkIsNight(nextProps.weather.dt);
+    }
   }
 
   getGeoLocation() {
@@ -40,8 +42,7 @@ class MainScreen extends React.Component {
         this.setState({
           location,
         });
-        this.checkIsNight();
-        this.requestWeather();
+        this.getWeather();
       },
       (error) => {
         console.log(error);
@@ -50,23 +51,15 @@ class MainScreen extends React.Component {
     );
   }
 
-  requestWeather() {
+  getWeather() {
     const { latitude, longitude } = this.state.location.coords;
+    const { requestWeather, dispatch } = this.props;
 
-    this.props.getWeatherData(latitude, longitude)
-      .then(response => response.json())
-      .then((weatherData) => {
-        dispatch(this.props.recieveWeatherData(weatherData));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    dispatch(requestWeather(latitude, longitude));
   }
 
-  checkIsNight() {
-    console.log(this.props);
-    console.log(this.state);
-    const date = new Date(this.state.location.timestamp);
+  checkIsNight(dt) {
+    const date = new Date(dt * 1000);
     const hours = date.getHours();
     const isNight = hours >= 22 || hours < 6;
 
@@ -74,7 +67,6 @@ class MainScreen extends React.Component {
       isNight,
     });
   }
-
 
   keyExtractor = (item, index) => item.title;
 
@@ -119,17 +111,25 @@ class MainScreen extends React.Component {
   }
 }
 
+MainScreen.defaultProps = {
+  weather: null,
+};
+
 MainScreen.propTypes = {
   mainScreen: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
+  weather: PropTypes.object,
   toggleMainScreenModal: PropTypes.func.isRequired,
   navigation: PropTypes.object.isRequired,
+  requestWeather: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
     mainScreen: state.mainScreen,
     user: state.auth,
+    weather: state.weather,
   };
 }
 
