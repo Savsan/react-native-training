@@ -30,6 +30,7 @@ export default class Avatar extends React.Component {
   }
 
   render() {
+    const image = this.props.image || images.defaultAvatar;
     let opacityValue;
 
     if (this.props.opacityAnimate) {
@@ -43,7 +44,7 @@ export default class Avatar extends React.Component {
 
     return (
       <Animated.Image
-        source={images.defaultAvatar}
+        source={image}
         style={[styles.avatar, { opacity: opacityValue }]}
       />
     );
@@ -52,8 +53,13 @@ export default class Avatar extends React.Component {
 
 Avatar.defaultProps = {
   opacityAnimate: false,
+  image: ['object', 'number'],
 };
 
 Avatar.propTypes = {
   opacityAnimate: PropTypes.bool,
+  image: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+  ]),
 };

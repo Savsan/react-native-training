@@ -1,13 +1,13 @@
 import React from 'react';
-import { View, Modal, Text, Button, FlatList, Image } from 'react-native';
+import { View, Modal, Text, Button, FlatList, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as allActionCreators from './actions';
 import PropTypes from 'prop-types';
-
-import { Header, ActionsButton, Logo, Avatar, ProgressBar } from 'reusable-components';
+import { Camera, Permissions } from 'expo';
+import { Header, ActionsButton, Logo, Avatar, ProgressBar, PhotoMaker } from 'reusable-components';
 import ActionsModal from './components';
 import styles from './styles';
 import images from 'images';
@@ -23,6 +23,8 @@ class MainScreen extends React.Component {
     ];
     this.state = {
       isNight: false,
+      hasCameraPermission: false,
+      image: images.defaultAvatar,
     };
   }
 
@@ -58,6 +60,21 @@ class MainScreen extends React.Component {
     dispatch(requestWeather(latitude, longitude));
   }
 
+  setImage = (image) => {
+    this.setState({
+      image,
+      hasCameraPermission: false,
+    });
+    this.closeCamera();
+  }
+
+  closeCamera = () => this.setState({ hasCameraPermission: false });
+
+  cameraStatus = async () => {
+    const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    this.setState({ hasCameraPermission: status === 'granted' });
+  };
+
   checkIsNight(dt) {
     const date = new Date(dt * 1000);
     const hours = date.getHours();
@@ -89,9 +106,12 @@ class MainScreen extends React.Component {
           }}
         />
         <View style={styles.avatarContainer}>
-          <Avatar
-            opacityAnimate
-          />
+          <TouchableOpacity onPress={this.cameraStatus}>
+            <Avatar
+              opacityAnimate
+              image={this.state.image}
+            />
+          </TouchableOpacity>
         </View>
         <FlatList
           style={styles.progressBarContainer}
@@ -105,6 +125,11 @@ class MainScreen extends React.Component {
           navigation={this.props.navigation}
           username={this.props.user.username}
           position={this.props.user.position}
+        />
+        <PhotoMaker
+          hasCameraPermission={this.state.hasCameraPermission}
+          setImage={this.setImage}
+          closeCamera={this.closeCamera}
         />
       </View>
     );
