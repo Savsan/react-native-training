@@ -15,10 +15,22 @@
       "backgroundColor": "#ffffff"
     },
     "packagerOpts": {
-      "assetExts": ["ttf", "mp4"]
+      "assetExts": [
+        "ttf",
+        "mp4"
+      ]
     },
     "ios": {
+      "bundleIdentifier": "com.epam.app",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.epam.app"
+    },
+    "isDetached": true,
+    "detach": {
+      "scheme": "exp7803c07876f3461eb7e9d773a7dbf354",
+      "androidExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v2.0.0-sdk22.0.0-7432f75c-05a1-4826-a456-02875e338222.tar.gz"
     }
   }
 }
