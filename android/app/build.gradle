@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
 
 android {
   compileSdkVersion 26
@@ -31,6 +30,15 @@ android {
   lintOptions {
     abortOnError false
   }
+
+  //Added This
+  //  packagingOptions {
+  //    exclude 'META-INF/maven/com.squareup.okhttp3/okhttp/pom.properties'
+  //    exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+  //    exclude 'META-INF/maven/com.squareup.okhttp3/okhttp/pom.xml'
+  //    exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+  //  }
+  // End - Added This
 }
 
 task exponentPrebuildStep(type: Exec) {
@@ -64,17 +72,37 @@ dependencies {
   compile ('com.google.firebase:firebase-core:11.6.0') {
     force = true
   } //this decides your firebase SDK version
-
-  compile 'com.google.android.gms:play-services-maps:11.6.0'
-  compile 'com.google.android.gms:play-services-location:11.6.0'
-  compile 'com.google.android.gms:play-services-gcm:11.6.0'
-
   compile('host.exp.exponent:expoview:22.0.0@aar') {
     exclude group: 'com.facebook.android', module: 'facebook-android-sdk'
     exclude group: 'com.facebook.android', module: 'audience-network-sdk'
     exclude group: 'io.nlopez.smartlocation', module: 'library'
-    transitive = true;
+
+    exclude group: 'com.google.android.gms'  //Added This
+
+    transitive = true
   }
+  //Added This
+  //  compile ("com.google.android.gms:play-services-base:11.6.0") {
+  //    force = true
+  //  }
+  compile 'com.google.android.gms:play-services-maps:11.6.0'
+  compile 'com.google.android.gms:play-services-gcm:11.6.0'
+  compile 'com.google.android.gms:play-services-location:11.6.0'
+  //  compile ("com.google.android.gms:play-services-auth:11.6.0") {
+  //    force = true
+  //  }
+  //  compile ("com.google.android.gms:play-services-analytics:11.6.0") {
+  //    force = true
+  //  }
+  //  compile ("com.google.android.gms:play-services-ads:11.6.0") {
+  //    force = true
+  //  }
+  //  compile ('com.google.android.gms:play-services-wallet:11.6.0') {
+  //    force = true
+  //  }
+  //End - Added This
+
+
 
   compile ('com.facebook.android:facebook-android-sdk:4.+')
   compile('com.facebook.android:audience-network-sdk:4.+') {
@@ -86,3 +114,5 @@ dependencies {
   
   
 }
+
+apply plugin: 'com.google.gms.google-services'
